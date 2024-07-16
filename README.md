@@ -1,3 +1,6 @@
-#  Repositorio de POO404_G02L_E05
+#  Repositorio de Guías y Desafíos de Laboratorio
 ------------
-- cada integrante tiene una rama por guia
+## Estructura de Ramas
+- Este proyecto utiliza una estructura de ramas específica para organizar las guías y los desafíos de laboratorio.
+  ## Guías de Laboratorio
+-  para cada guía de laboratorio, cada integrante del equipo deberá crear una rama por guia
