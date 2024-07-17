@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/GUIA1-POO.iml" filepath="$PROJECT_DIR$/.idea/GUIA1-POO.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Guia1/Guia1.iml" filepath="$PROJECT_DIR$/Guia1/Guia1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Guia1CapturaDatos/Guia1CapturaDatos.iml" filepath="$PROJECT_DIR$/Guia1CapturaDatos/Guia1CapturaDatos.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Guia1Comparacion/Guia1Comparacion.iml" filepath="$PROJECT_DIR$/Guia1Comparacion/Guia1Comparacion.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Guia1CuadroDialogo/Guia1CuadroDialogo.iml" filepath="$PROJECT_DIR$/Guia1CuadroDialogo/Guia1CuadroDialogo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Guia1SumaNumeros/Guia1SumaNumeros.iml" filepath="$PROJECT_DIR$/Guia1SumaNumeros/Guia1SumaNumeros.iml" />
+    </modules>
+  </component>
+</project>
