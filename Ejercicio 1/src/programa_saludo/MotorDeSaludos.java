@@ -102,4 +102,16 @@ public class MotorDeSaludos {
         }
     }
 
+ private static String obtenerDiaSemana(String fechaNacimiento) {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        try {
+            Date fechaNac = sdf.parse(fechaNacimiento);
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(fechaNac);
+            String[] dias = {"domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"};
+            return dias[cal.get(Calendar.DAY_OF_WEEK) - 1];
+        } catch (ParseException e) {
+            return "desconocido";
+        }
+    }
 }
