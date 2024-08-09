@@ -56,20 +56,23 @@ public class MotorDeSaludos {
         System.out.println("Naciste en un día " + obtenerDiaSemana(fechaNacimiento) + ".");
     }
 
+ 
     private static boolean validarFecha(String fecha) {
+       
+        if (!Pattern.matches("\\d{2}-\\d{2}-\\d{4}", fecha)) {
+            return false;
+        }
+
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-        sdf.setLenient(false); // Desactivar la interpretación flexible de fechas
+        sdf.setLenient(false);
 
         try {
-            Date fechaDate = sdf.parse(fecha);
-            Calendar cal = Calendar.getInstance();
-            cal.setTime(fechaDate);
+            sdf.parse(fecha);
             return true;
         } catch (ParseException e) {
             return false;
         }
     }
-
     // edad
     private static int calcularEdad(String fechaNacimiento) {
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
