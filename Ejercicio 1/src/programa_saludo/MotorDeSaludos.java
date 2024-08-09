@@ -8,7 +8,7 @@ import java.util.Scanner;
 import java.util.regex.Pattern;
 
 public class MotorDeSaludos {
-    public static void main(String[] args) {            //seria como el punto de entrada del programa
+    public static void main(String[] args) {           
         Scanner scanner = new Scanner(System.in);
 
 
@@ -18,12 +18,12 @@ public class MotorDeSaludos {
         System.out.print("Ingrese su apellido: ");
         String apellido = scanner.nextLine();
 
-        System.out.print("Ingrese su sexo (masculino/femenino): ");
+        System.out.print("Ingrese su sexo (masculino o femenino): ");
         String sexo = scanner.nextLine();
 
         String fechaNacimiento;
         do {
-            System.out.print("Ingrese su fecha de nacimiento (dd-MM-yyyy): ");
+            System.out.print("Ingrese su fecha de nacimiento (dd-MM-aaaa): ");
             fechaNacimiento = scanner.nextLine();
         } while (!validarFecha(fechaNacimiento));
 
@@ -42,6 +42,14 @@ public class MotorDeSaludos {
 
         System.out.println(saludo + " Actualmente tienes " + edad + " años.");
     }
+
+  
+       
+        if (esBisiesto(fechaNacimiento)) {
+            System.out.println("El año en que naciste es bisiesto.");
+        } else {
+            System.out.println("El año en que naciste no es bisiesto.");
+        }
 
 
     private static boolean validarFecha(String fecha) {
