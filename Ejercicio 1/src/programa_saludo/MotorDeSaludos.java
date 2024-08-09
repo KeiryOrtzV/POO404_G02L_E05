@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public class MotorDeSaludos {
     public static void main(String[] args) {            //seria como el punto de entrada del programa
