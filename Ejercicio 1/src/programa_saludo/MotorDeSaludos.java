@@ -8,9 +8,8 @@ import java.util.Scanner;
 import java.util.regex.Pattern;
 
 public class MotorDeSaludos {
-    public static void main(String[] args) {           
+    public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-
 
         System.out.print("Ingrese su nombre: ");
         String nombre = scanner.nextLine();
@@ -23,13 +22,11 @@ public class MotorDeSaludos {
 
         String fechaNacimiento;
         do {
-            System.out.print("Ingrese su fecha de nacimiento (dd-MM-aaaa): ");
+            System.out.print("Ingrese su fecha de nacimiento (dd-MM--aaaa): ");
             fechaNacimiento = scanner.nextLine();
         } while (!validarFecha(fechaNacimiento));
 
-        int edad = calcularEdad(fechaNacimiento); // se utiliza esTA FUNCION para calcular la edad
-
-
+        int edad = calcularEdad(fechaNacimiento);
 
         // Saludo según edad y sexo
 
@@ -41,24 +38,22 @@ public class MotorDeSaludos {
         }
 
         System.out.println(saludo + " Actualmente tienes " + edad + " años.");
-    }
 
-  
-       
+
+
+        // Determinar si el año de nacimiento es bisiesto
         if (esBisiesto(fechaNacimiento)) {
             System.out.println("El año en que naciste es bisiesto.");
         } else {
             System.out.println("El año en que naciste no es bisiesto.");
         }
 
-
-      
+        // Mostrar el día de la semana en que nació la persona
         System.out.println("Naciste en un día " + obtenerDiaSemana(fechaNacimiento) + ".");
     }
 
- 
     private static boolean validarFecha(String fecha) {
-       
+        // Validación usando expresiones regulares
         if (!Pattern.matches("\\d{2}-\\d{2}-\\d{4}", fecha)) {
             return false;
         }
@@ -73,6 +68,7 @@ public class MotorDeSaludos {
             return false;
         }
     }
+
     private static int calcularEdad(String fechaNacimiento) {
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
         try {
@@ -102,7 +98,7 @@ public class MotorDeSaludos {
         }
     }
 
- private static String obtenerDiaSemana(String fechaNacimiento) {
+    private static String obtenerDiaSemana(String fechaNacimiento) {
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
         try {
             Date fechaNac = sdf.parse(fechaNacimiento);
