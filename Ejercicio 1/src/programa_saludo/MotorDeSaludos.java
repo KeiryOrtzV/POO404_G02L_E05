@@ -73,27 +73,24 @@ public class MotorDeSaludos {
             return false;
         }
     }
-    // edad
     private static int calcularEdad(String fechaNacimiento) {
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
         try {
             Date fechaNac = sdf.parse(fechaNacimiento);
-            Date hoy = new Date();
+            Calendar calNac = Calendar.getInstance();
+            calNac.setTime(fechaNac);
 
-            Calendar cal1 = Calendar.getInstance();
-            cal1.setTime(fechaNac);
+            Calendar hoy = Calendar.getInstance();
+            int edad = hoy.get(Calendar.YEAR) - calNac.get(Calendar.YEAR);
 
-            Calendar cal2 = Calendar.getInstance();
-            cal2.setTime(hoy);
-
-            int edad = cal2.get(Calendar.YEAR) - cal1.get(Calendar.YEAR);
-            if (cal2.get(Calendar.MONTH) < cal1.get(Calendar.MONTH)
-                    || (cal2.get(Calendar.MONTH) == cal1.get(Calendar.MONTH) && cal2.get(Calendar.DATE) < cal1.get(Calendar.DATE))) {
+            if (hoy.get(Calendar.DAY_OF_YEAR) < calNac.get(Calendar.DAY_OF_YEAR)) {
                 edad--;
             }
+
             return edad;
         } catch (ParseException e) {
-            return -1; // Error al calcular la edad jaja
+            return -1;
         }
     }
+
 }
