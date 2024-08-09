@@ -52,6 +52,10 @@ public class MotorDeSaludos {
         }
 
 
+      
+        System.out.println("Naciste en un día " + obtenerDiaSemana(fechaNacimiento) + ".");
+    }
+
     private static boolean validarFecha(String fecha) {
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
         sdf.setLenient(false); // Desactivar la interpretación flexible de fechas
