@@ -93,4 +93,13 @@ public class MotorDeSaludos {
         }
     }
 
+    private static boolean esBisiesto(String fechaNacimiento) {
+        try {
+            int anio = Integer.parseInt(fechaNacimiento.split("-")[2]);
+            return (anio % 4 == 0 && anio % 100 != 0) || (anio % 400 == 0);
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
+
 }
