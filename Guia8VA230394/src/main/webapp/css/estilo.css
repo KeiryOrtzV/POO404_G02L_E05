@@ -1,0 +1,117 @@
+body {
+    background: linear-gradient(135deg, #6e7ff3, #c1c1f2);
+    font-family: 'Arial', sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+#login {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    width: 400px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #444;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="number"],
+input[type="date"],
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+input[type="date"]:focus,
+select:focus {
+    border-color: #6e7ff3;
+    outline: none;
+}
+
+.btn {
+    background-color: #6e7ff3;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+    width: 100%;
+}
+
+.btn:hover {
+    background-color: #5a6bbf;
+}
+
+#register-link {
+    margin-top: 20px;
+}
+
+#register-link a {
+    color: #6e7ff3;
+    text-decoration: none;
+}
+
+#register-link a:hover {
+    text-decoration: underline;
+}
+
+/* Estilo para el modal */
+.modal-content {
+    border-radius: 15px;
+}
+
+.modal-header,
+.modal-footer {
+    border: none;
+}
+
+.modal-header {
+    background: #6e7ff3;
+    color: white;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.modal-body h3 {
+    color: #333;
+}
+
+input[type="submit"] {
+    margin-top: 20px;
+}
