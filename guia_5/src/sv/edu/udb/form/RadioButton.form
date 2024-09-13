@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="sv.edu.udb.form.RadioButton">
+  <grid id="27dc6" layout-manager="GridLayoutManager" row-count="4" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="0" left="0" bottom="0" right="0"/>
+    <constraints>
+      <xy x="20" y="20" width="565" height="806"/>
+    </constraints>
+    <properties>
+      <font name="Segoe Print" size="22" style="1"/>
+    </properties>
+    <border type="none"/>
+    <children>
+      <vspacer id="5f00">
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </vspacer>
+      <component id="ca706" class="javax.swing.JLabel" binding="lblImagen1">
+        <constraints>
+          <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <icon value="sv/edu/udb/img/img1.png"/>
+          <text value=""/>
+        </properties>
+      </component>
+      <component id="6a85c" class="javax.swing.JRadioButton" binding="rbtOpcion2">
+        <constraints>
+          <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Opcion2"/>
+        </properties>
+      </component>
+      <component id="8ffb3" class="javax.swing.JLabel" binding="lblImagen3">
+        <constraints>
+          <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <icon value="sv/edu/udb/img/img2.png"/>
+          <text value=""/>
+        </properties>
+      </component>
+      <component id="1c67a" class="javax.swing.JRadioButton" binding="rbtOpcion3">
+        <constraints>
+          <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Opcion3"/>
+        </properties>
+      </component>
+      <component id="61aa7" class="javax.swing.JLabel" binding="lblImagen2">
+        <constraints>
+          <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <icon value="sv/edu/udb/img/img3.jpg"/>
+          <text value=""/>
+        </properties>
+      </component>
+      <component id="31a60" class="javax.swing.JRadioButton" binding="rbtOpcion1">
+        <constraints>
+          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Opcion1"/>
+        </properties>
+      </component>
+      <component id="3176f" class="javax.swing.JLabel" binding="lblTitulo">
+        <constraints>
+          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="Segoe Script" size="22" style="1"/>
+          <text value="Seleccione una imagen"/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+  <buttonGroups>
+    <group name="buttonGroupImg">
+      <member id="31a60"/>
+      <member id="6a85c"/>
+      <member id="1c67a"/>
+    </group>
+  </buttonGroups>
+</form>
