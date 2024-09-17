@@ -1,0 +1,61 @@
+/* Define el borde de la ventana */
+div.window       {
+    border:5px outset Gray;
+    height:200px;
+    position:absolute;
+    width:300px;
+}
+
+/* Especifica el tamaño, la posición y el estilo 
+ de la barra de título  */
+div.titlebar     {
+    background-color:#aaa;
+    border-bottom:groove gray 2px;
+    font:bold 10pt sans-serif;
+    height:18px;
+    padding:3px 5px 2px 5px;
+    position:absolute;
+    top:0px;
+    width:290px;
+}
+
+div.titlebaractive {
+    background-color:#3355CC;
+    border-bottom:groove #111190;
+    color:white;
+    font:bold 10pt sans-serif;
+    height:18px;
+    padding:3px 5px 2px 5px;
+    position:absolute;
+    top:0px;
+    width:290px;
+}
+
+/* Define el tamaño, posición y desplazamiento 
+ para el contenido de la ventana */
+div.content      {
+    background-color:Gainsboro;
+    height:165px;
+    padding:6px;
+    overflow:auto;
+    position:absolute;
+    top:25px;
+    width:290px;
+}
+
+/* Crea un efecto que hace que la ventana sea 
+ parcialmente transparente considerando tanto 
+ navegadores recientes, antiguos e Internet Explorer */
+div.translucent  {
+    -moz-opacity:.75;
+    -webkit-opacity:.75;
+    -o-opacity:.75;
+    opacity:.75;
+    filter:alpha(opacity=75);
+}
+
+.centrado        {
+    font-family:"Courier New";
+    font-size:11pt;
+    text-align:center;
+}
