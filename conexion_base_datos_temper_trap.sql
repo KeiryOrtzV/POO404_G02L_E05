@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 23-09-2024 a las 03:08:55
--- Versión del servidor: 8.3.0
--- Versión de PHP: 8.2.18
+-- Tiempo de generación: 24-09-2024 a las 19:08:45
+-- Versión del servidor: 8.2.0
+-- Versión de PHP: 8.2.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -38,7 +38,18 @@ CREATE TABLE IF NOT EXISTS `clientes` (
   `fecha_registro` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_cliente`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Volcado de datos para la tabla `clientes`
+--
+
+INSERT INTO `clientes` (`id_cliente`, `nombre`, `email`, `telefono`, `direccion`, `password`, `fecha_registro`) VALUES
+(1, 'John Doe', 'john.doe@example.com', '555-1234', '123 Elm St, Springfield', 'password123', '2024-09-23 06:00:00'),
+(2, 'Jane Smith', 'jane.smith@example.com', '555-5678', '456 Oak Ave, Metropolis', 'securePass987', '2024-09-23 06:00:00'),
+(3, 'Carlos Pérez', 'carlos.perez@example.com', '555-2345', '789 Pine Rd, Gotham', 'password456', '2024-09-23 06:00:00'),
+(4, 'Linda Nguyen', 'linda.nguyen@example.com', '555-3456', '101 Maple Dr, Star City', 'mypassword789', '2024-09-23 06:00:00'),
+(5, 'Akira Tanaka', 'akira.tanaka@example.com', '555-4567', '202 Birch St, Central City', 'securePassword321', '2024-09-23 06:00:00');
 
 -- --------------------------------------------------------
 
@@ -91,7 +102,21 @@ CREATE TABLE IF NOT EXISTS `menu` (
   `precio` decimal(10,2) DEFAULT NULL,
   `disponibilidad` tinyint(1) DEFAULT '1',
   PRIMARY KEY (`id_plato`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Volcado de datos para la tabla `menu`
+--
+
+INSERT INTO `menu` (`id_plato`, `nombre_plato`, `descripcion`, `precio`, `disponibilidad`) VALUES
+(1, 'Spaghetti a la Bolognesa', 'Spaghetti con salsa bolognesa casera y queso parmesano.', 12.99, 1),
+(2, 'Ensalada César', 'Lechuga fresca, crutones, queso parmesano y aderezo César.', 7.50, 1),
+(3, 'Pollo a la Parrilla', 'Pechuga de pollo a la parrilla con guarnición de vegetales al vapor.', 14.99, 1),
+(4, 'Pizza Margarita', 'Pizza con salsa de tomate, queso mozzarella y albahaca fresca.', 10.99, 1),
+(5, 'Sopa de Tomate', 'Sopa cremosa de tomate con un toque de albahaca.', 6.50, 1),
+(6, 'Tacos al Pastor', 'Tacos de cerdo marinado con piña, cilantro y cebolla.', 8.99, 1),
+(7, 'Hamburguesa Clásica', 'Hamburguesa con carne de res, queso, lechuga, tomate y papas fritas.', 11.99, 1),
+(8, 'Brownie con Helado', 'Brownie de chocolate servido con helado de vainilla.', 5.99, 1);
 
 -- --------------------------------------------------------
 
@@ -111,6 +136,39 @@ CREATE TABLE IF NOT EXISTS `pedidos` (
   PRIMARY KEY (`id_pedido`),
   KEY `id_cliente` (`id_cliente`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuarios`
+--
+
+DROP TABLE IF EXISTS `usuarios`;
+CREATE TABLE IF NOT EXISTS `usuarios` (
+  `id_usuario` int NOT NULL AUTO_INCREMENT,
+  `nombre_usuario` varchar(50) NOT NULL,
+  `contraseña` varchar(50) NOT NULL,
+  `rol` varchar(20) NOT NULL,
+  PRIMARY KEY (`id_usuario`)
+) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`id_usuario`, `nombre_usuario`, `contraseña`, `rol`) VALUES
+(10, 'cliente4', 'sapolio10', 'cliente'),
+(2, 'ana_cliente', 'abcde', 'cliente'),
+(3, 'pedro_empleado', 'admin123', 'empleado'),
+(4, 'maria_empleado', 'passempleado', 'empleado'),
+(5, 'cliente1', 'pass123', 'cliente'),
+(6, 'cliente2', 'pass456', 'cliente'),
+(7, 'cliente3', 'pass789', 'cliente'),
+(8, 'empleado1', 'emp123', 'empleado'),
+(9, 'empleado2', 'emp456', 'empleado'),
+(11, 'lolo', 'lola1', 'empleado'),
+(12, 'empleado1', '12345', 'empleado'),
+(13, 'alexander', 'sapolio10', 'cliente');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
