@@ -37,7 +37,7 @@ public class LoginServlet extends HttpServlet {
             System.out.println("Login exitoso para: " + nombreUsuario);
             HttpSession session = request.getSession();
             session.setAttribute("usuario", usuario);
-            response.sendRedirect("welcome.jsp");
+            response.sendRedirect("menu");
         } else {
             System.out.println("Login fallido para: " + nombreUsuario);
             request.setAttribute("error", "Nombre de usuario o contraseña incorrectos.");

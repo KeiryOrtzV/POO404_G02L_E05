@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 24-09-2024 a las 00:36:26
+-- Tiempo de generación: 24-09-2024 a las 19:08:45
 -- Versión del servidor: 8.2.0
 -- Versión de PHP: 8.2.13
 
@@ -102,7 +102,21 @@ CREATE TABLE IF NOT EXISTS `menu` (
   `precio` decimal(10,2) DEFAULT NULL,
   `disponibilidad` tinyint(1) DEFAULT '1',
   PRIMARY KEY (`id_plato`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Volcado de datos para la tabla `menu`
+--
+
+INSERT INTO `menu` (`id_plato`, `nombre_plato`, `descripcion`, `precio`, `disponibilidad`) VALUES
+(1, 'Spaghetti a la Bolognesa', 'Spaghetti con salsa bolognesa casera y queso parmesano.', 12.99, 1),
+(2, 'Ensalada César', 'Lechuga fresca, crutones, queso parmesano y aderezo César.', 7.50, 1),
+(3, 'Pollo a la Parrilla', 'Pechuga de pollo a la parrilla con guarnición de vegetales al vapor.', 14.99, 1),
+(4, 'Pizza Margarita', 'Pizza con salsa de tomate, queso mozzarella y albahaca fresca.', 10.99, 1),
+(5, 'Sopa de Tomate', 'Sopa cremosa de tomate con un toque de albahaca.', 6.50, 1),
+(6, 'Tacos al Pastor', 'Tacos de cerdo marinado con piña, cilantro y cebolla.', 8.99, 1),
+(7, 'Hamburguesa Clásica', 'Hamburguesa con carne de res, queso, lechuga, tomate y papas fritas.', 11.99, 1),
+(8, 'Brownie con Helado', 'Brownie de chocolate servido con helado de vainilla.', 5.99, 1);
 
 -- --------------------------------------------------------
 
@@ -136,7 +150,7 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `contraseña` varchar(50) NOT NULL,
   `rol` varchar(20) NOT NULL,
   PRIMARY KEY (`id_usuario`)
-) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Volcado de datos para la tabla `usuarios`
@@ -152,7 +166,9 @@ INSERT INTO `usuarios` (`id_usuario`, `nombre_usuario`, `contraseña`, `rol`) VA
 (7, 'cliente3', 'pass789', 'cliente'),
 (8, 'empleado1', 'emp123', 'empleado'),
 (9, 'empleado2', 'emp456', 'empleado'),
-(11, 'lolo', 'lola1', 'empleado');
+(11, 'lolo', 'lola1', 'empleado'),
+(12, 'empleado1', '12345', 'empleado'),
+(13, 'alexander', 'sapolio10', 'cliente');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
