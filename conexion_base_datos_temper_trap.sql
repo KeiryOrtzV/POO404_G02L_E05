@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 26-09-2024 a las 01:43:30
+-- Tiempo de generación: 26-09-2024 a las 02:22:13
 -- Versión del servidor: 8.2.0
 -- Versión de PHP: 8.2.13
 
@@ -67,7 +67,7 @@ CREATE TABLE IF NOT EXISTS `detalles_pedido` (
   PRIMARY KEY (`id_detalle`),
   KEY `id_pedido` (`id_pedido`),
   KEY `id_plato` (`id_plato`)
-) ENGINE=MyISAM AUTO_INCREMENT=54 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=63 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Volcado de datos para la tabla `detalles_pedido`
@@ -126,7 +126,16 @@ INSERT INTO `detalles_pedido` (`id_detalle`, `id_pedido`, `id_plato`, `cantidad`
 (50, 25, 1, 1, 12.99),
 (51, 25, 2, 1, 7.50),
 (52, 25, 4, 1, 10.99),
-(53, 25, 5, 1, 6.50);
+(53, 25, 5, 1, 6.50),
+(54, 36, 7, 1, 11.99),
+(55, 37, 2, 1, 7.50),
+(56, 37, 3, 1, 14.99),
+(57, 38, 3, 1, 14.99),
+(58, 38, 4, 1, 10.99),
+(59, 39, 1, 1, 12.99),
+(60, 39, 2, 1, 7.50),
+(61, 39, 3, 1, 14.99),
+(62, 39, 4, 1, 10.99);
 
 -- --------------------------------------------------------
 
@@ -189,20 +198,20 @@ CREATE TABLE IF NOT EXISTS `pedidos` (
   `total` decimal(10,2) NOT NULL,
   `comentarios_empleado` text,
   `id_usuario` int DEFAULT NULL,
+  `nombre_empleado` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `id_empleado` (`id_usuario`)
-) ENGINE=MyISAM AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=40 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Volcado de datos para la tabla `pedidos`
 --
 
-INSERT INTO `pedidos` (`id`, `fecha_pedido`, `estado`, `forma_pago`, `comentarios`, `total`, `comentarios_empleado`, `id_usuario`) VALUES
-(25, '2024-09-26 01:42:09', 'COMPLETADO', 'TARJETA', 'ricos', 37.98, NULL, NULL),
-(21, '2024-09-26 01:39:11', 'COMPLETADO', 'EFECTIVO', 'ricos platos', 35.48, NULL, NULL),
-(22, '2024-09-26 01:39:37', 'COMPLETADO', 'EFECTIVO', 'delicosos', 62.45, NULL, NULL),
-(23, '2024-09-26 01:40:31', 'PENDIENTE', 'PENDIENTE', '', 79.94, NULL, NULL),
-(24, '2024-09-26 01:40:55', 'COMPLETADO', 'EFECTIVO', 'Platos exquisitos', 20.49, NULL, NULL);
+INSERT INTO `pedidos` (`id`, `fecha_pedido`, `estado`, `forma_pago`, `comentarios`, `total`, `comentarios_empleado`, `id_usuario`, `nombre_empleado`) VALUES
+(29, '2024-09-26 01:35:03', 'Entregado al cliente', 'EFECTIVO', 'Cumpleaños sorpresa', 45.00, 'Pedido entregado satisfactoriamente', NULL, 'Ana Martínez'),
+(34, '2024-09-26 01:45:03', 'En proceso de elaborar', 'TARJETA', 'Sin sal', 27.50, 'Ajustando receta para pedido sin sal', NULL, 'Javier Moreno'),
+(35, '2024-09-26 01:49:03', 'Aceptado', 'EFECTIVO', 'Entrega urgente', 33.25, 'Priorizando pedido urgente', NULL, 'Isabel Torres'),
+(39, '2024-09-26 02:20:39', 'COMPLETADO', 'EFECTIVO', 'malos', 46.47, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
