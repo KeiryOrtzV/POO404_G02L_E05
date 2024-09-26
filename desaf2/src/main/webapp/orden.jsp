@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Menú - The Temper Trap</title>
+    <title>Orden - Restaurante Exquisito</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
@@ -35,20 +35,21 @@
         }
 
         table {
-            width: 100%;
             border-collapse: collapse;
+            width: 100%;
             margin-bottom: 20px;
         }
 
-        table th, table td {
+        th, td {
+            border: 1px solid #c82333;
             padding: 12px;
             text-align: left;
-            border-bottom: 1px solid #ddd;
         }
 
-        table th {
+        th {
             background-color: #c82333;
-            color: #fff;
+            color: white;
+            font-weight: bold;
         }
 
         .btn-primary {
@@ -66,67 +67,46 @@
             background-color: #a61c29;
             border-color: #a61c29;
         }
-
-        .btn-secondary {
-            background-color: #6c757d;
-            border-color: #6c757d;
-            font-family: 'Cinzel', serif;
-            font-size: 18px;
-            font-weight: 700;
-            padding: 12px 24px;
-            border-radius: 4px;
-            margin-left: 10px; /* Espacio entre botones */
-            transition: background-color 0.3s ease;
-            text-decoration: none; /* Sin subrayado en el enlace */
-            color: #fff; /* Color de texto */
-            display: inline-block; /* Para mantener el formato de botón */
-        }
-
-        .btn-secondary:hover {
-            background-color: #5a6268;
-            border-color: #5a6268;
-        }
     </style>
 </head>
 <body>
 <div class="container">
-    <h1>Nuestro Menú</h1>
+    <h1>Confirmación de Orden</h1>
 
     <%
-        List<Plato> platos = (List<Plato>) request.getAttribute("platos");
-        if (platos == null || platos.isEmpty()) {
+        // Obtener la lista de IDs de platos seleccionados del formulario
+        String[] selectedPlatosIds = request.getParameterValues("platos");
+        if (selectedPlatosIds == null || selectedPlatosIds.length == 0) {
     %>
-    <p>No se encontraron platos en el menú. Por favor, verifica la conexión con la base de datos y el servlet.</p>
+    <p>No se seleccionaron platos. Por favor, regresa al menú y selecciona algunos platos.</p>
     <%
     } else {
+        // Obtener los platos desde la base de datos usando los IDs seleccionados
+        List<Plato> platosSeleccionados = (List<Plato>) request.getAttribute("platosSeleccionados");
     %>
-    <p>Número de platos encontrados: <%= platos.size() %></p>
-    <form action="procesarPedido" method="post">
+    <p>Número de platos seleccionados: <%= selectedPlatosIds.length %></p>
+    <form action="finalizarOrden" method="post">
         <table>
             <tr>
                 <th>Nombre</th>
                 <th>Descripción</th>
                 <th>Precio</th>
-                <th>Seleccionar</th>
             </tr>
             <%
-                for (Plato plato : platos) {
+                for (Plato plato : platosSeleccionados) {
             %>
             <tr>
                 <td><%= plato.getNombre_plato() %></td>
                 <td><%= plato.getDescripcion() %></td>
                 <td>$<%= String.format("%.2f", plato.getPrecio()) %></td>
-                <td>
-                    <input type="checkbox" name="platos" value="<%= plato.getId_plato() %>">
-                </td>
             </tr>
             <%
                 }
             %>
         </table>
-        <input type="submit" class="btn btn-primary" value="Hacer pedido">
+        <input type="hidden" name="platos" value="<%= String.join(",", selectedPlatosIds) %>">
+        <input type="submit" class="btn btn-primary" value="Confirmar Pedido">
     </form>
-    <a href="gestionPedidos" class="btn btn-secondary">gestionar pedidos solo para empleados</a>
     <%
         }
     %>

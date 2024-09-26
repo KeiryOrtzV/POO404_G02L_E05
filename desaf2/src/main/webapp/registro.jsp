@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Registro de Usuario - Restaurante The Temper Tra</title>
+  <title>Registro de Usuario - Restaurante The Temper TraP</title>
   <style>
     /* Fuentes */
     @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400;1,700&display=swap');

@@ -1,21 +1,21 @@
 package com.example.model;
+
 public class Plato {
     private int id_plato;
     private String nombre_plato;
     private String descripcion;
     private double precio;
-    private boolean disponibilidad;
+    private boolean disponible;
 
-    // Constructor
-    public Plato(int id_plato, String nombre_plato, String descripcion, double precio, boolean disponibilidad) {
+    public Plato(int id_plato, String nombre_plato, String descripcion, double precio, boolean disponible) {
         this.id_plato = id_plato;
         this.nombre_plato = nombre_plato;
         this.descripcion = descripcion;
         this.precio = precio;
-        this.disponibilidad = disponibilidad;
+        this.disponible = disponible;
     }
 
-    // Getters y setters
+    // Getters y Setters
     public int getId_plato() {
         return id_plato;
     }
@@ -48,23 +48,11 @@ public class Plato {
         this.precio = precio;
     }
 
-    public boolean isDisponibilidad() {
-        return disponibilidad;
+    public boolean isDisponible() {
+        return disponible;
     }
 
-    public void setDisponibilidad(boolean disponibilidad) {
-        this.disponibilidad = disponibilidad;
-    }
-
-    // Método para representar el objeto como String (opcional)
-    @Override
-    public String toString() {
-        return "Plato{" +
-                "id_plato=" + id_plato +
-                ", nombre_plato='" + nombre_plato + '\'' +
-                ", descripcion='" + descripcion + '\'' +
-                ", precio=" + precio +
-                ", disponibilidad=" + disponibilidad +
-                '}';
+    public void setDisponible(boolean disponible) {
+        this.disponible = disponible;
     }
 }

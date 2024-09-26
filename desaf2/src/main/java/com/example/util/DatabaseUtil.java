@@ -21,6 +21,12 @@ public class DatabaseUtil {
         return DriverManager.getConnection(URL, USER, PASSWORD);
     }
 
+    public static boolean testConnection() {
+        try (Connection conn = getConnection()) {
+            return conn != null && !conn.isClosed();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
-
-
+}
