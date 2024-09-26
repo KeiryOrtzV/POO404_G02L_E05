@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 25-09-2024 a las 23:32:44
+-- Tiempo de generación: 26-09-2024 a las 01:43:30
 -- Versión del servidor: 8.2.0
 -- Versión de PHP: 8.2.13
 
@@ -67,7 +67,7 @@ CREATE TABLE IF NOT EXISTS `detalles_pedido` (
   PRIMARY KEY (`id_detalle`),
   KEY `id_pedido` (`id_pedido`),
   KEY `id_plato` (`id_plato`)
-) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=54 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Volcado de datos para la tabla `detalles_pedido`
@@ -93,7 +93,40 @@ INSERT INTO `detalles_pedido` (`id_detalle`, `id_pedido`, `id_plato`, `cantidad`
 (17, 14, 2, 1, 7.50),
 (18, 15, 7, 1, 11.99),
 (19, 16, 1, 1, 12.99),
-(20, 16, 2, 1, 7.50);
+(20, 16, 2, 1, 7.50),
+(21, 17, 1, 1, 12.99),
+(22, 17, 2, 1, 7.50),
+(23, 18, 3, 1, 14.99),
+(24, 18, 4, 1, 10.99),
+(25, 18, 5, 1, 6.50),
+(26, 19, 1, 1, 12.99),
+(27, 19, 2, 1, 7.50),
+(28, 19, 3, 1, 14.99),
+(29, 20, 4, 1, 10.99),
+(30, 20, 5, 1, 6.50),
+(31, 21, 1, 1, 12.99),
+(32, 21, 2, 1, 7.50),
+(33, 21, 3, 1, 14.99),
+(34, 22, 1, 1, 12.99),
+(35, 22, 2, 1, 7.50),
+(36, 22, 3, 1, 14.99),
+(37, 22, 6, 1, 8.99),
+(38, 22, 7, 1, 11.99),
+(39, 22, 8, 1, 5.99),
+(40, 23, 1, 1, 12.99),
+(41, 23, 2, 1, 7.50),
+(42, 23, 3, 1, 14.99),
+(43, 23, 4, 1, 10.99),
+(44, 23, 5, 1, 6.50),
+(45, 23, 6, 1, 8.99),
+(46, 23, 7, 1, 11.99),
+(47, 23, 8, 1, 5.99),
+(48, 24, 1, 1, 12.99),
+(49, 24, 2, 1, 7.50),
+(50, 25, 1, 1, 12.99),
+(51, 25, 2, 1, 7.50),
+(52, 25, 4, 1, 10.99),
+(53, 25, 5, 1, 6.50);
 
 -- --------------------------------------------------------
 
@@ -158,29 +191,18 @@ CREATE TABLE IF NOT EXISTS `pedidos` (
   `id_usuario` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `id_empleado` (`id_usuario`)
-) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Volcado de datos para la tabla `pedidos`
 --
 
 INSERT INTO `pedidos` (`id`, `fecha_pedido`, `estado`, `forma_pago`, `comentarios`, `total`, `comentarios_empleado`, `id_usuario`) VALUES
-(1, '2024-09-25 16:09:29', 'PENDIENTE', 'PENDIENTE', '', 20.49, NULL, NULL),
-(2, '2024-09-25 16:15:06', 'PENDIENTE', 'PENDIENTE', '', 79.94, NULL, NULL),
-(3, '2024-09-25 16:19:40', 'PENDIENTE', 'PENDIENTE', '', 20.49, NULL, NULL),
-(4, '2024-09-25 16:31:17', 'PENDIENTE', 'PENDIENTE', '', 12.99, NULL, NULL),
-(5, '2024-09-25 16:53:14', 'PENDIENTE', 'PENDIENTE', '', 12.99, NULL, NULL),
-(6, '2024-09-25 16:58:53', 'PENDIENTE', 'PENDIENTE', '', 7.50, NULL, NULL),
-(7, '2024-09-25 17:04:23', 'PENDIENTE', 'PENDIENTE', '', 7.50, NULL, NULL),
-(8, '2024-09-25 17:05:27', 'PENDIENTE', 'PENDIENTE', '', 52.97, NULL, NULL),
-(9, '2024-09-25 17:06:49', 'PENDIENTE', 'PENDIENTE', '', 20.49, NULL, NULL),
-(10, '2024-09-25 17:08:16', 'PENDIENTE', 'PENDIENTE', '', 20.49, NULL, NULL),
-(11, '2024-09-25 17:19:47', 'PENDIENTE', 'PENDIENTE', '', 14.99, NULL, NULL),
-(12, '2024-09-25 17:24:06', 'PENDIENTE', 'PENDIENTE', '', 20.49, NULL, NULL),
-(13, '2024-09-25 17:27:29', 'PENDIENTE', 'PENDIENTE', '', 22.49, NULL, NULL),
-(14, '2024-09-25 17:34:30', 'PENDIENTE', 'PENDIENTE', '', 20.49, NULL, NULL),
-(15, '2024-09-25 17:35:34', 'PENDIENTE', 'PENDIENTE', '', 11.99, NULL, NULL),
-(16, '2024-09-25 17:37:30', 'PENDIENTE', 'PENDIENTE', '', 20.49, NULL, NULL);
+(25, '2024-09-26 01:42:09', 'COMPLETADO', 'TARJETA', 'ricos', 37.98, NULL, NULL),
+(21, '2024-09-26 01:39:11', 'COMPLETADO', 'EFECTIVO', 'ricos platos', 35.48, NULL, NULL),
+(22, '2024-09-26 01:39:37', 'COMPLETADO', 'EFECTIVO', 'delicosos', 62.45, NULL, NULL),
+(23, '2024-09-26 01:40:31', 'PENDIENTE', 'PENDIENTE', '', 79.94, NULL, NULL),
+(24, '2024-09-26 01:40:55', 'COMPLETADO', 'EFECTIVO', 'Platos exquisitos', 20.49, NULL, NULL);
 
 -- --------------------------------------------------------
 
