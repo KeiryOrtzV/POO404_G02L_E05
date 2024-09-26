@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 24-09-2024 a las 19:08:45
+-- Tiempo de generación: 25-09-2024 a las 23:32:44
 -- Versión del servidor: 8.2.0
 -- Versión de PHP: 8.2.13
 
@@ -54,21 +54,46 @@ INSERT INTO `clientes` (`id_cliente`, `nombre`, `email`, `telefono`, `direccion`
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `detalle_pedido`
+-- Estructura de tabla para la tabla `detalles_pedido`
 --
 
-DROP TABLE IF EXISTS `detalle_pedido`;
-CREATE TABLE IF NOT EXISTS `detalle_pedido` (
+DROP TABLE IF EXISTS `detalles_pedido`;
+CREATE TABLE IF NOT EXISTS `detalles_pedido` (
   `id_detalle` int NOT NULL AUTO_INCREMENT,
-  `id_pedido` int DEFAULT NULL,
-  `id_plato` int DEFAULT NULL,
-  `cantidad` int DEFAULT NULL,
-  `precio_unitario` decimal(10,2) DEFAULT NULL,
-  `subtotal` decimal(10,2) DEFAULT NULL,
+  `id_pedido` int NOT NULL,
+  `id_plato` int NOT NULL,
+  `cantidad` int NOT NULL,
+  `subtotal` decimal(10,2) NOT NULL,
   PRIMARY KEY (`id_detalle`),
   KEY `id_pedido` (`id_pedido`),
   KEY `id_plato` (`id_plato`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Volcado de datos para la tabla `detalles_pedido`
+--
+
+INSERT INTO `detalles_pedido` (`id_detalle`, `id_pedido`, `id_plato`, `cantidad`, `subtotal`) VALUES
+(1, 7, 2, 1, 7.50),
+(2, 8, 1, 1, 12.99),
+(3, 8, 2, 1, 7.50),
+(4, 8, 3, 1, 14.99),
+(5, 8, 4, 1, 10.99),
+(6, 8, 5, 1, 6.50),
+(7, 9, 1, 1, 12.99),
+(8, 9, 2, 1, 7.50),
+(9, 10, 1, 1, 12.99),
+(10, 10, 2, 1, 7.50),
+(11, 11, 3, 1, 14.99),
+(12, 12, 1, 1, 12.99),
+(13, 12, 2, 1, 7.50),
+(14, 13, 2, 1, 7.50),
+(15, 13, 3, 1, 14.99),
+(16, 14, 1, 1, 12.99),
+(17, 14, 2, 1, 7.50),
+(18, 15, 7, 1, 11.99),
+(19, 16, 1, 1, 12.99),
+(20, 16, 2, 1, 7.50);
 
 -- --------------------------------------------------------
 
@@ -80,12 +105,9 @@ DROP TABLE IF EXISTS `empleados`;
 CREATE TABLE IF NOT EXISTS `empleados` (
   `id_empleado` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(100) DEFAULT NULL,
-  `email` varchar(100) DEFAULT NULL,
-  `password` varchar(255) DEFAULT NULL,
-  `rol` enum('cocinero','mesero','repartidor','administrador') NOT NULL,
-  `fecha_registro` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id_empleado`),
-  UNIQUE KEY `email` (`email`)
+  `apellido` varchar(100) DEFAULT NULL,
+  `cargo` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id_empleado`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -109,7 +131,7 @@ CREATE TABLE IF NOT EXISTS `menu` (
 --
 
 INSERT INTO `menu` (`id_plato`, `nombre_plato`, `descripcion`, `precio`, `disponibilidad`) VALUES
-(1, 'Spaghetti a la Bolognesa', 'Spaghetti con salsa bolognesa casera y queso parmesano.', 12.99, 1),
+(1, 'Spaghetti a la pizza', 'Spaghetti con salsa bolognesa casera y queso parmesano.', 12.99, 1),
 (2, 'Ensalada César', 'Lechuga fresca, crutones, queso parmesano y aderezo César.', 7.50, 1),
 (3, 'Pollo a la Parrilla', 'Pechuga de pollo a la parrilla con guarnición de vegetales al vapor.', 14.99, 1),
 (4, 'Pizza Margarita', 'Pizza con salsa de tomate, queso mozzarella y albahaca fresca.', 10.99, 1),
@@ -126,16 +148,39 @@ INSERT INTO `menu` (`id_plato`, `nombre_plato`, `descripcion`, `precio`, `dispon
 
 DROP TABLE IF EXISTS `pedidos`;
 CREATE TABLE IF NOT EXISTS `pedidos` (
-  `id_pedido` int NOT NULL AUTO_INCREMENT,
-  `id_cliente` int DEFAULT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
   `fecha_pedido` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `estado` enum('aceptado','en_proceso','entregado_repartidor','entregado_cliente') DEFAULT 'aceptado',
-  `forma_pago` enum('tarjeta','efectivo') NOT NULL,
-  `total` decimal(10,2) DEFAULT NULL,
-  `comentario_empleado` text,
-  PRIMARY KEY (`id_pedido`),
-  KEY `id_cliente` (`id_cliente`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `estado` varchar(50) NOT NULL,
+  `forma_pago` varchar(50) NOT NULL,
+  `comentarios` text,
+  `total` decimal(10,2) NOT NULL,
+  `comentarios_empleado` text,
+  `id_usuario` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_empleado` (`id_usuario`)
+) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Volcado de datos para la tabla `pedidos`
+--
+
+INSERT INTO `pedidos` (`id`, `fecha_pedido`, `estado`, `forma_pago`, `comentarios`, `total`, `comentarios_empleado`, `id_usuario`) VALUES
+(1, '2024-09-25 16:09:29', 'PENDIENTE', 'PENDIENTE', '', 20.49, NULL, NULL),
+(2, '2024-09-25 16:15:06', 'PENDIENTE', 'PENDIENTE', '', 79.94, NULL, NULL),
+(3, '2024-09-25 16:19:40', 'PENDIENTE', 'PENDIENTE', '', 20.49, NULL, NULL),
+(4, '2024-09-25 16:31:17', 'PENDIENTE', 'PENDIENTE', '', 12.99, NULL, NULL),
+(5, '2024-09-25 16:53:14', 'PENDIENTE', 'PENDIENTE', '', 12.99, NULL, NULL),
+(6, '2024-09-25 16:58:53', 'PENDIENTE', 'PENDIENTE', '', 7.50, NULL, NULL),
+(7, '2024-09-25 17:04:23', 'PENDIENTE', 'PENDIENTE', '', 7.50, NULL, NULL),
+(8, '2024-09-25 17:05:27', 'PENDIENTE', 'PENDIENTE', '', 52.97, NULL, NULL),
+(9, '2024-09-25 17:06:49', 'PENDIENTE', 'PENDIENTE', '', 20.49, NULL, NULL),
+(10, '2024-09-25 17:08:16', 'PENDIENTE', 'PENDIENTE', '', 20.49, NULL, NULL),
+(11, '2024-09-25 17:19:47', 'PENDIENTE', 'PENDIENTE', '', 14.99, NULL, NULL),
+(12, '2024-09-25 17:24:06', 'PENDIENTE', 'PENDIENTE', '', 20.49, NULL, NULL),
+(13, '2024-09-25 17:27:29', 'PENDIENTE', 'PENDIENTE', '', 22.49, NULL, NULL),
+(14, '2024-09-25 17:34:30', 'PENDIENTE', 'PENDIENTE', '', 20.49, NULL, NULL),
+(15, '2024-09-25 17:35:34', 'PENDIENTE', 'PENDIENTE', '', 11.99, NULL, NULL),
+(16, '2024-09-25 17:37:30', 'PENDIENTE', 'PENDIENTE', '', 20.49, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -150,7 +195,7 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `contraseña` varchar(50) NOT NULL,
   `rol` varchar(20) NOT NULL,
   PRIMARY KEY (`id_usuario`)
-) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Volcado de datos para la tabla `usuarios`
@@ -168,7 +213,8 @@ INSERT INTO `usuarios` (`id_usuario`, `nombre_usuario`, `contraseña`, `rol`) VA
 (9, 'empleado2', 'emp456', 'empleado'),
 (11, 'lolo', 'lola1', 'empleado'),
 (12, 'empleado1', '12345', 'empleado'),
-(13, 'alexander', 'sapolio10', 'cliente');
+(13, 'alexander', 'sapolio10', 'cliente'),
+(14, 'alex', 'sapolio10', 'empleado');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
